@@ -33,6 +33,11 @@ lista = [rock, paper, scissors]
 
 myHand = int(input('What do you choose? Type 0 for Rock, 1 for Paper and 2 for Scissors.\n'))
 
+if myHand > 2 or myHand < 0:
+    print('You\'ve tiped the invalid number. You\'ve lost!')
+    exit()
+
+
 print(lista[myHand])
 
 computer = random.randint(0,2)
