@@ -27,12 +27,12 @@ print(f"This is result of the Easy Level of password generator: {easyPass}")
 #Hard Level - Order of characters randomised:
 #e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
 
-#this is my solution of Hard Level password generator
+### This is MY solution of Hard Level password generator ###
 
 hardPass = "".join(random.sample(easyPass,len(easyPass)))
 print(f"This is result of the Hard Level of password generator: {hardPass}")
 
-#this is Angela's solution of Hard Level password generator
+### This is Angela's solution of Hard Level password generator ###
 
 password_list = []
 
