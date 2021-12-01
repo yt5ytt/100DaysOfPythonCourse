@@ -27,7 +27,7 @@ while not finish:
     print(f'Letter {guessLetter} is not in the chosen word. You\'ve losted one life')
     lives -= 1
     guessedLetters.append(guessLetter)
-  else:    
+  else:
     guessedLetters.append(guessLetter)
 
   listIndex = 0
@@ -36,7 +36,7 @@ while not finish:
       display[listIndex] = guessLetter
 
     listIndex += 1
-  
+
   if lives == 0:
     finish = True
     memo = 'You\'ve lost!!!'
@@ -50,6 +50,3 @@ while not finish:
   print(hangman_art.stages[lives])
 
 print(memo)
-
-
-
