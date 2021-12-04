@@ -1,4 +1,4 @@
-from clear import clear
+from functions import clear
 clear()
 from logo import logo
 print(logo)
