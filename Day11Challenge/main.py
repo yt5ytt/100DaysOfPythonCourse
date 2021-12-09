@@ -78,6 +78,8 @@ while play:
       print("It's a DRAW!!!")
     elif player_score < dealer_score:
       print("Dealer wins. YOU LOSE!!!")
+    elif player_score > dealer_score:
+      print("YOU WIN!!!")
   else:
     if 10 in dealer and 11 in dealer:
       print("You lose. Dealer have BLACKJACK!!!")
