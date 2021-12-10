@@ -19,10 +19,6 @@ while play:
     
     if guess == random_number:
       break
-    # elif guess <= random_number:
-    #   print("Malo je... Broj je veci!\nPogadjaj ponovo.\n")
-    # elif guess >= random_number:
-    #   print("Mnogo je kume... Smanji malo!!!\nPogadjaj ponovo.\n")
     
   if guess != random_number:
     print("Nemas vise pravo da pogadjas. IZGUBIO SI!!!\n")  
@@ -30,6 +26,5 @@ while play:
   play_again = input("Da li zelis ponovo da igras igru. Ukucaj 'y' ako zelis ili 'n' ako ne zelis: ").lower()
   if play_again == 'n':
     play = False
-
 
 ###End of code
