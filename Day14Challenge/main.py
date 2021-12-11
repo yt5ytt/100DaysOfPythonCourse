@@ -15,12 +15,9 @@ while play:
   if not guess:
     break
 
-  name_a = functions.name(random_a)
   followers_a = functions.followers(random_a)
-  description_a = functions.description(random_a)
-  country_a = functions.country(random_a)
 
-  print(f"Compare A: {name_a}, {description_a}, from {country_a}.")
+  print(f"Compare A: {functions.compare_text(random_a)}.")
 
   print(logo.vs)
 
@@ -28,12 +25,9 @@ while play:
   while random_a == random_b:
     random_b = functions.random_num()
 
-  name_b = functions.name(random_b)
   followers_b = functions.followers(random_b)
-  description_b = functions.description(random_b)
-  country_b = functions.country(random_b)
 
-  print(f"Compare B: {name_b}, {description_b}, from {country_b}.")
+  print(f"Compare B: {functions.compare_text(random_b)}.")
 
   answer = input("Who has more followers? Type 'A' or 'B': ").lower()
 
