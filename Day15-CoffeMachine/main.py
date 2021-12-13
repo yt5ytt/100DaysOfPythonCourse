@@ -5,11 +5,16 @@ money = 0
 print(logo)
 print("Welcome to 'COPACABANA' Coffee Machine!")
 
+# Begins while loop with whole app
 order_free = True
 while order_free:
+
+    # Start parameters
     is_available = False
     choice = ""
     checked_choice = ""
+
+    # If choice is wrong in input parameter, while loop to return to begin of app
     wrong_choice = True
     while wrong_choice:
         choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
@@ -25,6 +30,7 @@ while order_free:
         else:
             print("There is no such choice.")
 
+    # Checking if there is enough ingredients or not and begin calculation and coffee prepare.
     if not is_available:
         print(f"Sorry, there's not enough {checked_choice}")
     else:
@@ -35,7 +41,8 @@ while order_free:
         pennies = int(input("how many pennies?: "))
         inserted = [quarters * 0.25, dimes * 0.10, nickles * 0.05, pennies * 0.01]
         sum_money = sum_inserted(inserted)
-
+        
+        # Checks if is enough money for order or not
         if sum_money < MENU[choice]["cost"]:
             print("Sorry that's not enough money. Money refunded.")
         else:

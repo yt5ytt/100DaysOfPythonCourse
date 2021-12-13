@@ -10,6 +10,7 @@ def clear():
 
 
 def report(resources, money):
+    """ Prints formated string with report """
     print(f'''
 Water: {resources["water"]}ml
 Milk: {resources["milk"]}ml
@@ -19,6 +20,7 @@ Money: ${money}
 
 
 def check_resources(resources, choice):
+    """ Check if is there enough resources or not"""
     for key in resources:
         if key not in MENU[choice]["ingredients"]:
             continue
@@ -29,11 +31,13 @@ def check_resources(resources, choice):
 
 
 def sum_inserted(inserted):
+    """ Calculates SUM of entered money """
     sum_of_money = sum(inserted)
     return sum_of_money
 
 
 def spend_resources(resources, choice):
+    """ Returns list with new amount of resources after spent ingredients """
     for key in resources:
         if key not in MENU[choice]["ingredients"]:
             continue
