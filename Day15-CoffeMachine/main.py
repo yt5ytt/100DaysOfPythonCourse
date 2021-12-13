@@ -1,25 +1,46 @@
 from logo import logo
-from functions import clear, report, check_resources
-from data import resources, menu_choice
+from functions import report, check_resources, sum_inserted, spend_resources
+from data import resources, menu_choice, MENU
 money = 0
 print(logo)
 print("Welcome to 'COPACABANA' Coffee Machine!")
 
 order_free = True
 while order_free:
-    # clear()
-    choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
-    if choice == "off":
-        exit("GOODBYE!!!")
-    elif choice == "report":
-        report(resources, money)
-    elif choice in menu_choice:
-        is_available = check_resources(resources, choice)
-    else:
-        print("There is no such choice.")
+    is_available = False
+    choice = ""
+    checked_choice = ""
+    wrong_choice = True
+    while wrong_choice:
         choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
+        if choice == "off":
+            exit("GOODBYE!!!")
+        elif choice == "report":
+            report(resources, money)
+        elif choice in menu_choice:
+            checked_choice = check_resources(resources, choice)
+            if checked_choice == "Available":
+                is_available = True
+            wrong_choice = False
+        else:
+            print("There is no such choice.")
 
-    if is_available is not True:
-        print(is_available)
+    if not is_available:
+        print(f"Sorry, there's not enough {checked_choice}")
     else:
-        print("Just a moment please!")
+        print("Please insert coins.")
+        quarters = int(input("how many quarters?: "))
+        dimes = int(input("how many dimes?: "))
+        nickles = int(input("how many nickles?: "))
+        pennies = int(input("how many pennies?: "))
+        inserted = [quarters * 0.25, dimes * 0.10, nickles * 0.05, pennies * 0.01]
+        sum_money = sum_inserted(inserted)
+
+        if sum_money < MENU[choice]["cost"]:
+            print("Sorry that's not enough money. Money refunded.")
+        else:
+            spend_resources(resources, choice)
+            change = sum_money - MENU[choice]["cost"]
+            print(f"Here is ${change} in change.")
+            print(f"Here is your {choice}. Enjoy!")
+            money += MENU[choice]["cost"]
