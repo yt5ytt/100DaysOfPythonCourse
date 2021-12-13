@@ -26,6 +26,8 @@ MENU = {
 
 resources = {
     "water": 300,
-    "milk": 200,
+    "milk": 0,
     "coffee": 100,
 }
+
+menu_choice = ["espresso", "latte", "cappuccino"]
