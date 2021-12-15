@@ -41,7 +41,7 @@ while order_free:
         pennies = int(input("how many pennies?: "))
         inserted = [quarters * 0.25, dimes * 0.10, nickles * 0.05, pennies * 0.01]
         sum_money = sum_inserted(inserted)
-        
+
         # Checks if is enough money for order or not
         if sum_money < MENU[choice]["cost"]:
             print("Sorry that's not enough money. Money refunded.")
