@@ -1,7 +1,8 @@
 from logo import logo
-from functions import report, check_resources, sum_inserted, spend_resources
+from functions import clear, report, check_resources, sum_inserted, spend_resources
 from data import resources, menu_choice, MENU
 money = 0
+clear()
 print(logo)
 print("Welcome to 'COPACABANA' Coffee Machine!")
 
