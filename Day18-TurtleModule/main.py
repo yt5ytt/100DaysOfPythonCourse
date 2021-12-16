@@ -2,15 +2,14 @@ import turtle as t
 import random
 
 tim = t.Turtle()
-tim.shape("turtle")
+# tim.shape("turtle")
 tim.color("red")
-# tim.pensize(10)
-tim.speed(0)
+tim.speed(1)
 t.colormode(255)
 
-step = 5
-i = round(360/step)
-heading = 0
+# step = 5
+# i = round(360/step)
+# heading = 0
 
 
 
@@ -26,11 +25,23 @@ def random_color():
     return (r, g, b)
 
 
-for _ in range(i):
-    tim.circle(100)
-    tim.setheading(heading)
-    tim.color(random_color())
-    heading += step
+tim.penup()
+
+tim.goto(-200, -200)
+tim.dot(20, random_color())
+
+tim.goto(-150, -200)
+tim.dot(20, random_color())
+
+tim.goto(-100, -200)
+tim.dot(20, random_color())
+
+
+# for _ in range(i):
+#     tim.circle(100)
+#     tim.setheading(heading)
+#     tim.color(random_color())
+#     heading += step
 #
 #
 # for _ in range(1000):
