@@ -1,15 +1,11 @@
-from turtle import Screen
 from middleLine import MiddleLine
+from screen_setup import ScreenSetup
 
-screen = Screen()
-screen.setup(width=1.0, height=1.0)
-screen.bgcolor("black")
-X_FACTOR = int(screen.window_width()/2)
-Y_FACTOR = int(screen.window_height()/2)
+screen = ScreenSetup()
+
+X_FACTOR = int(screen.x_factor())
+Y_FACTOR = int(screen.y_factor())
 
 line = MiddleLine(Y_FACTOR)
-
-
-
 
 screen.exitonclick()
