@@ -9,13 +9,10 @@ class LittleTurtle(Turtle):
         self.penup()
         self.setheading(90)
         self.color("black")
-        self.goto(0, -280)
+        self.reset_turtle()
 
     def move_forward(self):
-        self.forward(20)
-
-    def move_backward(self):
-        self.backward(20)
+        self.forward(10)
 
     def reset_turtle(self):
         self.goto(0, -280)

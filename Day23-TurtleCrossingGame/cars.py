@@ -12,8 +12,8 @@ class Cars(Turtle):
         self.color(random.choice(COLORS))
         self.penup()
         self.goto(300, random_y)
-        self.shapesize(1, 2)
+        self.shapesize(stretch_wid=1, stretch_len=2)
 
     def move(self):
-        new_x = self.xcor() - 10
+        new_x = self.xcor() - 5
         self.goto(new_x, self.ycor())
