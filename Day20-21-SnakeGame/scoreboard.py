@@ -3,6 +3,7 @@ from turtle import Turtle
 WIDTH = 600
 HEIGHT = 600
 
+
 class Scoreboard(Turtle):
     
     def __init__(self):

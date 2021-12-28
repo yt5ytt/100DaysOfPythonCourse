@@ -35,12 +35,13 @@ while game_is_on:
         snake.extend()
         score.update_score()
     
-    #detect if snake hits wall
-    if snake.head.xcor() > WIDTH/2 - 20 or  snake.head.xcor() < -(WIDTH/2 - 20) or snake.head.ycor() < -(HEIGHT/2 - 20) or snake.head.ycor() > HEIGHT/2 - 20:
+    # detect if snake hits wall
+    if snake.head.xcor() > WIDTH/2 - 20 or snake.head.xcor() < -(WIDTH/2 - 20) or snake.head.ycor() < -(HEIGHT/2 - 20) \
+            or snake.head.ycor() > HEIGHT/2 - 20:
         game_is_on = False
         score.game_over()
     
-    #detect if snake hits its tale
+    # detect if snake hits its tale
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
             game_is_on = False
