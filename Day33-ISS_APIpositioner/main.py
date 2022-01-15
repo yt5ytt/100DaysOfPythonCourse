@@ -1,47 +1,58 @@
-# from tkinter import *
 import requests
-
-# def get_quote():
-#     canvas.itemconfig(quote_text, text=read_quote())
-#
-# def read_quote():
-#     response = requests.get(url="https://api.kanye.rest/")
-#     data = response.json()["quote"]
-#     return data
-#
-# window = Tk()
-# window.title("Kanye Says...")
-# window.config(padx=50, pady=50)
-#
-# canvas = Canvas(width=300, height=414)
-# background_img = PhotoImage(file="background.png")
-# canvas.create_image(150, 207, image=background_img)
-# quote_text = canvas.create_text(150, 207,
-#                                 text=read_quote(),
-#                                 width=250,
-#                                 font=("Arial", 20, "bold"),
-#                                 fill="white"
-#                                 )
-# canvas.grid(row=0, column=0)
-#
-# kanye_img = PhotoImage(file="kanye.png")
-# kanye_button = Button(image=kanye_img, highlightthickness=0, command=get_quote)
-# kanye_button.grid(row=1, column=0)
-#
-#
-#
-# window.mainloop()
+from datetime import datetime
+import smtplib
+import time
 
 MY_LAT = 44.270672
-MY_LNG = 19.884090
+MY_LONG = 19.884090
+API_KEY = "55edede826ce451794a3166f9b37778a"
+GMAIL_SMTP = "smtp.gmail.com"
+PORT = 587
 
-parameters = {
-    "lat": MY_LAT,
-    "lng": MY_LNG,
-    "formatted": 0,
-}
+USER = "alex.yt5ytt@gmail.com"
+PASSWD = "Radnaskela2405976"
 
-response = requests.get(f"https://api.sunrise-sunset.org/json", params=parameters)
-response.raise_for_status()
-data = response.json()
-print(data["results"])
+
+def send_mail():
+    with smtplib.SMTP(GMAIL_SMTP, PORT) as conn:
+        conn.starttls()
+        conn.login(user=USER, password=PASSWD)
+        conn.sendmail(
+            from_addr=USER,
+            to_addrs=USER,
+            msg="Subject: ISS is close\nGet outside and look up in the sky!"
+        )
+
+
+def is_iss_overhead():
+    response = requests.get(url="http://api.open-notify.org/iss-now.json")
+    response.raise_for_status()
+    data = response.json()
+    print("60s")
+
+    iss_lat = float(data["iss_position"]["latitude"])
+    iss_long = float(data["iss_position"]["longitude"])
+
+    if (MY_LAT - 5 < iss_lat < MY_LAT + 5) and (MY_LONG - 5 < iss_long < MY_LONG + 5):
+        return True
+
+
+def is_night():
+    response = requests.get(f"https://api.ipgeolocation.io/astronomy?apiKey={API_KEY}&lat={MY_LAT}&long={MY_LONG}")
+    response.raise_for_status()
+    datas = response.json()
+    my_sunrise_hour = int(datas["sunrise"].split(":")[0])
+    my_sunset_hour = int(datas["sunset"].split(":")[0])
+
+    time_now = int(datetime.now().hour)
+
+    if time_now > my_sunset_hour or time_now < my_sunrise_hour:
+        return True
+
+
+while True:
+    if is_night() and is_iss_overhead():
+        send_mail()
+    time.sleep(60)
+
+
