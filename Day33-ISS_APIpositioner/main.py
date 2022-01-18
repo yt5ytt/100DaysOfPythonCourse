@@ -28,7 +28,6 @@ def is_iss_overhead():
     response = requests.get(url="http://api.open-notify.org/iss-now.json")
     response.raise_for_status()
     data = response.json()
-    print("60s")
 
     iss_lat = float(data["iss_position"]["latitude"])
     iss_long = float(data["iss_position"]["longitude"])
@@ -53,6 +52,7 @@ def is_night():
 while True:
     if is_night() and is_iss_overhead():
         send_mail()
+        print("Mail sent!")
     time.sleep(60)
 
 
