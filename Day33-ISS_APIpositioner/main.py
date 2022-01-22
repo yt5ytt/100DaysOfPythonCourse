@@ -10,7 +10,7 @@ GMAIL_SMTP = "smtp.gmail.com"
 PORT = 587
 
 USER = "alex.yt5ytt@gmail.com"
-PASSWD = "Radnaskela2405976"
+PASSWD = ['Your stmp password here']
 
 
 def send_mail():
