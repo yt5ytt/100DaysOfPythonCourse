@@ -1,7 +1,10 @@
 from twilio.rest import Client
+import os
 
 TWILIO_ACCOUNT_SID = "ACd75cedbaa2afafbc6a971f10a5eb0086"
 TWILIO_AUTH_TOKEN = "de5cbb2f43ebccf344b26d28714128be"
+# TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
+# TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
 
 
 class Twillio:

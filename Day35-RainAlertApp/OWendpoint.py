@@ -1,11 +1,12 @@
 import requests
+import os
 
 LAT = 44.270672
 LONG = 19.884090
 # LAT = 52.520008
 # LONG = 13.404954
 API_KEY = "cb2d76f21d73982f7deb1422cf938db4"
-
+# API_KEY = os.environ.get("OWM_API_KEY")
 
 class OW_endpoint:
 
