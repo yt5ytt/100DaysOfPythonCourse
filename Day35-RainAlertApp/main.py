@@ -1,5 +1,5 @@
 from OWendpoint import OW_endpoint
-from twillio import Twillio
+from twilioSMS import TwilioSMS
 
 response = OW_endpoint()
 response.raise_error()
@@ -12,9 +12,7 @@ for num in range(12):
         will_rain = True
 
 if will_rain:
-    send = Twillio()
+    send = TwilioSMS()
     send.sms()
 else:
     print("You don't need an umbrella in the next 12 hours.")
-
-

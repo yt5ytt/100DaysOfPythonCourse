@@ -1,16 +1,17 @@
 import requests
+import os
 from datetime import datetime
 import smtplib
 import time
 
-MY_LAT = 44.270672
-MY_LONG = 19.884090
-API_KEY = "55edede826ce451794a3166f9b37778a"
+MY_LAT = float(os.environ.get("LAT"))
+MY_LONG = float(os.environ.get("LONG"))
+API_KEY = os.environ.get("API_KEY")
 GMAIL_SMTP = "smtp.gmail.com"
 PORT = 587
 
-USER = "alex.yt5ytt@gmail.com"
-PASSWD = ['Your stmp password here']
+USER = os.environ.get("USER")
+PASSWD = os.environ.get("PASSWD")
 
 
 def send_mail():
@@ -54,5 +55,3 @@ while True:
         send_mail()
         print("Mail sent!")
     time.sleep(60)
-
-
