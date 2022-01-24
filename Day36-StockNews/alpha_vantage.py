@@ -28,15 +28,12 @@ class AlphaVantage:
         return self.response.raise_for_status()
 
     def percentage(self):
-        if self.today > self.yesday:
-            diff = self.today - self.yesday
-        else:
-            diff = self.yesday - self.today
+        diff = abs(self.today - self.yesday)
         percentage = round(diff/self.yesday * 100, 2)
         return percentage
 
     def is_fluctuation(self):
-        if self.percentage > 10:
+        if self.percentage > 5:
             return True
         else:
             return False

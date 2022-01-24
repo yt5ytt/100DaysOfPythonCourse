@@ -5,9 +5,9 @@ from twilioSMS import TwilioSMS
 r = AlphaVantage()
 r.raise_error()
 
-n = News(r)
+n = News()
 n.raise_error()
 
-t = TwilioSMS(n)
+t = TwilioSMS(n, r)
 if r.is_fluctuation():
     t.sms()
