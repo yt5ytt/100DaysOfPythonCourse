@@ -11,4 +11,3 @@ n.raise_error()
 t = TwilioSMS(n)
 if r.is_fluctuation():
     t.sms()
-
