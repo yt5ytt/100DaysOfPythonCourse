@@ -3,6 +3,6 @@ __pycache__/
 .idea/
 gitHubToken
 ./Day35-RainAlertApp/venv
-./Day36/venv
-./Day36/.env.bat
+Day36-StockNews/venv
+Day36-StockNews/.env.bat
 .gitignore
