@@ -1,11 +1,10 @@
 from selenium import webdriver
 import time
 
-chrome_driver_path = "/home/yt5ytt/Development/ChromeDriver/chromedriver_linux64/chromedriver"
+chrome_driver_path = 'D:\Development\geckodriver.exe'
 
-# chrome_driver_path = YOUR CHROME DRIVER PATH
-driver = webdriver.Chrome(chrome_driver_path)
-driver.get("https://orteil.dashnet.org/cookieclicker/")
+driver = webdriver.Firefox(chrome_driver_path)
+driver.get("http://orteil.dashnet.org/cookieclicker/")
 
 #Get cookie to click on.
 cookie = driver.find_element_by_id("bigCookie")
