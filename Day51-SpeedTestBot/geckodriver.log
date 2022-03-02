@@ -3148,3 +3148,12 @@ JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch res
 [Parent 9852, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
 JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
 JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\yt5ytt\AppData\Local\Temp\rust_mozprofileOnU46q\protections.sqlite
+1646221378373	geckodriver	INFO	Listening on 127.0.0.1:50752
+1646221380386	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50753" "-no-remote" "-profile" "C:\\Users\\yt5ytt\\AppData\\Local\\Temp\\rust_mozprofile7SNciS"
+1646221381711	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\yt5ytt\\AppData\\Local\\Temp\\rust_mozprofile7SNciS\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:50753/devtools/browser/25d4f534-dafb-488a-adef-807dfef25774
+1646221385597	Marionette	INFO	Listening on port 50758
+1646221386019	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1646221400898	Marionette	INFO	Stopped listening on port 50758
+Exiting due to channel error.
