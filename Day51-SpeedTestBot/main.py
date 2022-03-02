@@ -1,4 +1,3 @@
-import time
 from Classes.ookla import SpeedTest
 from Classes.twitter import Twitter
 

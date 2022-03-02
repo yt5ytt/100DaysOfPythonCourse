@@ -1,6 +1,8 @@
 from selenium import webdriver
 import time
-from const import CHROME, OOKLA_URL, FIREFOX
+
+FIREFOX = "D:\Development\geckodriver.exe"
+OOKLA_URL = "https://www.speedtest.net/"
 
 
 class SpeedTest:
@@ -19,11 +21,12 @@ class SpeedTest:
         self.up_speed()
 
     def press_go_button(self):
-        press = self.driver.find_element_by_css_selector(css_selector="a span.start-text")
+        # press = self.driver.find_element_by_css_selector(css_selector="a span.start-text")
+        press = self.driver.find_element(by="css selector", value="a span.start-text")
         press.click()
 
     def down_speed(self):
-        self.download_speed = float(self.driver.find_element_by_class_name("download-speed").text)
+        self.download_speed = float(self.driver.find_element(by="class name", value="download-speed").text)
 
     def up_speed(self):
-        self.upload_speed = float(self.driver.find_element_by_class_name("upload-speed").text)
+        self.upload_speed = float(self.driver.find_element(by="class name", value="upload-speed").text)
