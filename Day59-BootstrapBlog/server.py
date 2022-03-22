@@ -16,7 +16,8 @@ def about():
 def single_post(num):
     for blog_post in blog.data:
         if blog_post["id"] == num:
-            return render_template("post.html", post=blog_post)
+            image = "{{ url_for('static', filename='assets/img/post-bg.jpg')}}"
+            return render_template("post.html", post=blog_post, image=image)
 
 @app.route("/contact")
 def contact():
