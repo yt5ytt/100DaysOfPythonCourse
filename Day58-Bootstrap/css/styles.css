@@ -1,0 +1,179 @@
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Ubuntu', sans-serif; */
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+#title{
+    background-color: #ff4c68;
+    color: white;
+    overflow: hidden;
+}
+
+.wrapper{
+    padding: 0 15%;
+}
+
+.navbar-brand{
+    font-size: 2.5rem;
+    font-family: 'Ubuntu';
+    font-weight: bold;
+}
+
+nav .nav-item{
+    padding: 0 18px;
+}
+
+nav .nav-link{
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+.titleText{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.container-fluid{
+    padding: 3% 0;
+}
+
+.leftSection{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.leftSection .appleButton{
+    margin-right: 1rem;
+}
+
+img.iphone{
+    width: 60%;
+    margin: 100px 0 -200px 10%;
+    transform: rotateZ(30deg);
+}
+
+#features{
+    padding: 10% 0;
+}
+
+#features .featureContainer{
+    text-align: center;
+    padding: 0 2%;
+}
+
+#features i{
+    color: #ef8172;
+    line-height: 2;
+    font-size: 3rem;
+    transition: .5s linear;
+}
+
+#features i:hover{
+    color: #ff4c68;
+    transition: .5s linear;
+}
+
+#features h3{
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+#features p{
+    color: #8f8f8f;
+}
+
+/* Testimonials Section */
+
+#testimonials{
+    background-color: #ef8172;
+    text-align: center;
+    color: white;
+}
+
+#testimonials h2{
+    font-weight: bolder;
+    font-size: 2.5rem;
+}
+#testimonials .carousel-item{
+    padding: 10% 15%;
+}
+
+#testimonials img{
+    width: 10%;
+    border-radius: 100%;;
+}
+
+/* Press Section */
+
+#press{
+    background-color: #ef8172;
+    text-align: center;
+    padding: 5% 0;
+}
+
+#press img{
+    width: 15%;
+}
+
+/* Pricing Section */
+
+#pricing{
+    text-align: center;
+    padding: 10% 15%;
+}
+
+#pricing .pricingTitle h2{
+    font-weight: bolder;
+    font-size: 2.5rem;
+}
+
+#pricing .pricingTitle p{
+    color: #8f8f8f;
+}
+
+#pricing .card-item{
+    margin: 0.5rem 0;
+    border: 1px solid #8f8f8f;
+}
+
+/* Call To Action Section */
+
+#cta{
+    background-color: #ff4c68;
+    padding: 10% 15%;
+    text-align: center;
+    color: white;
+}
+
+#cta h3{
+    font-weight: bolder;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+#cta button{
+    margin: 0 1rem;
+}
+
+/* Footer */
+
+footer{
+    padding: 10% 15% 0;
+    text-align: center;
+}
+
+footer .socials{
+    margin-bottom: 1rem;
+}
+
+footer .socials a{
+    color: black;
+    font-size: 1.5rem;
+    margin: 1rem 0.5rem 0;
+}
