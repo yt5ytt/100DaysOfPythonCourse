@@ -5,10 +5,6 @@ import smtplib
 
 SMTP_PORT = 587
 
-GMAIL_SMTP = "smtp.gmail.com"
-GMAIL_USER = "alex.yt5ytt@gmail.com"
-GMAIL_PASS = "Radnaskela2405976"
-
 now = dt.datetime.now()
 day = now.day
 month = now.month
