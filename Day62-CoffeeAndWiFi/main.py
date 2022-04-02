@@ -1,17 +1,27 @@
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template, url_for
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
+from numpy import append
+from wtforms import StringField, SubmitField, SelectField
+from wtforms.validators import DataRequired, URL
 import csv
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 Bootstrap(app)
 
+COFFIES = ["☕", "☕☕", "☕☕☕", "☕☕☕☕", "☕☕☕☕☕"]
+POWER = ["✘", "🔌", "🔌🔌", "🔌🔌🔌", "🔌🔌🔌🔌", "🔌🔌🔌🔌🔌"]
+WIFI = ["✘", "💪", "💪💪", "💪💪💪", "💪💪💪💪", "💪💪💪💪💪"]
 
 class CafeForm(FlaskForm):
     cafe = StringField('Cafe name', validators=[DataRequired()])
+    location = StringField('Coffee Location on Google Maps (URL)', validators=[DataRequired(), URL()])
+    open_time = StringField('Opening Time e.g. 8AM', validators=[DataRequired()])
+    close_time = StringField('Closing Time e.g. 5:30PM', validators=[DataRequired()])
+    coffee = SelectField('Coffee Rating', choices=COFFIES)
+    WiFi = SelectField('WiFi Strength Rating', choices=WIFI)
+    power = SelectField('Power Socket Availability', choices=POWER)
     submit = SubmitField('Submit')
 
 # Exercise:
@@ -29,10 +39,26 @@ def home():
     return render_template("index.html")
 
 
-@app.route('/add')
+@app.route('/add', methods=["POST", "GET"])
 def add_cafe():
     form = CafeForm()
     if form.validate_on_submit():
+        add_line = [
+            form.cafe.data,
+            form.location.data,
+            form.open_time.data,
+            form.close_time.data,
+            form.coffee.data,
+            form.WiFi.data,
+            form.power.data
+        ]
+
+        with open("cafe-data.csv", "a") as write_data:
+            csv_writer = csv.writer(write_data)
+            csv_writer.writerow(add_line)
+        
+        return redirect(url_for('add_cafe'))
+
         print("True")
     # Exercise:
     # Make the form write a new row into cafe-data.csv
