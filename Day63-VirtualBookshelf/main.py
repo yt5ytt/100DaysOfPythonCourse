@@ -43,12 +43,13 @@ def add():
         return redirect(location="/")
     return render_template("add.html")
 
+
 @app.route("/edit", methods=["GET", "POST"])
 def edit():
     if "id" in request.args:
-        id = request.args.get("id")
-        select_book = select(books_table).where(books_table.c.id == id)
-        with engine.connect () as conn:
+        item_id = request.args.get("id")
+        select_book = select(books_table).where(books_table.c.id == item_id)
+        with engine.connect() as conn:
             result = conn.execute(select_book)
             for book in result:
                 book_id = book.id
@@ -58,8 +59,8 @@ def edit():
         return render_template("edit.html", id=book_id, title=title, author=author, rating=book_rating)
     elif request.method == "POST":
         rating = request.form["rating"]
-        id = request.form["id"]
-        update_data = update(books_table).where(books_table.c.id == id).values(rating=rating)
+        item_id = request.form["id"]
+        update_data = update(books_table).where(books_table.c.id == item_id).values(rating=rating)
         with engine.connect() as conn:
             conn.execute(update_data)
         return redirect("/")
@@ -67,4 +68,3 @@ def edit():
 
 if __name__ == "__main__":
     app.run(debug=True)
-

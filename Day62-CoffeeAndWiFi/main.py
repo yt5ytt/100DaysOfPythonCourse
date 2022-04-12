@@ -59,7 +59,6 @@ def add_cafe():
         
         return redirect(url_for('add_cafe'))
 
-        print("True")
     # Exercise:
     # Make the form write a new row into cafe-data.csv
     # with   if form.validate_on_submit()
